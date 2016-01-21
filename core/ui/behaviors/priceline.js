@@ -299,7 +299,7 @@ function Priceline (id,options,data,target,attachment) {
 		_.w = $('#weight-'+i).val(formatNumber(new Number(dimensions.weight || 0),nf,true));
 
 		inf.on('change.value', '#weight-'+i, function () {
-			this.value = formatNumber(isNaN(this.value)?0:this.value,nf,true);
+			this.value = formatNumber(asNumber(this.value),nf,true);
 		});
 
 		_.fee = $('#shipfee-'+i);
