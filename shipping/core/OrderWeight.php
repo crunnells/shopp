@@ -46,7 +46,7 @@ class OrderWeight extends ShippingFramework implements ShippingModule {
 				$amount = Shopp::floatval($rate);			// Capture the rate amount
 				$minimum = Shopp::floatval($threshold);		// Convert in case of decimal comma notation
 
-				if ( $this->weight >= $minimum) {
+				if ( $this->weight >= $minimum ) {
 					$matched = true;
 					break;
 				}
