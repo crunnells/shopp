@@ -40,17 +40,18 @@ class OrderWeight extends ShippingFramework implements ShippingModule {
 			$amount = 0;
 			$matched = false;
 			$tiers = array_reverse($tiers);
-			
+
 			foreach ( $tiers as $tier ) {
 				extract($tier);
 				$amount = Shopp::floatval($rate);			// Capture the rate amount
-				
-				if ( $this->weight >= $threshold ) {
+				$minimum = Shopp::floatval($threshold);		// Convert in case of decimal comma notation
+
+				if ( $this->weight >= $minimum) {
 					$matched = true;
-					break;	
-				} 
+					break;
+				}
 			}
-			
+
 			if ( ! $matched ) return $options;
 
 			$rate = array(
